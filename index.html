@@ -1,0 +1,205 @@
+<html>
+<head>
+    <title>Movie Trivia</title>
+    <link rel= "stylesheet" href = "assets/css/style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src = "assets/javascript/app.js"></script>
+<body>
+    <h1>Movie Trivia</h1>
+     </br></br></br></br>
+
+    <div id= "StartScreen">
+        How well do you know your movies?
+       </br></br>
+        <button class= "button-custom" id= "start">Start Now</button>
+    </div>
+    <div id="GameCanvas" style="display: none;">
+
+  
+    <section>
+    
+    <p class= timer-style>Time remaining: <span id = "timer"> </span> seconds</p>
+
+    <div>
+     Q1: What hit movie did Heath Ledger finish filming shortly before his death?
+    </br></br>
+     <form>
+         <input type = "radio" name= "q" class = "incorrect" value = "other"/> 10 Things I Hate About You</br>
+         <input type = "radio" name= "q" class = "incorrect" value = "other"/> Brokeback Mountain</br>
+         <input type = "radio" name= "q" class = "correct"   value = "answer"/> The Dark Knight</br>
+         <input type = "radio" name= "q" class = "incorrect" value = "other"/>Candy</br>
+     </form>
+    </div>
+
+    <div>
+     Q2: What Pulp Fiction co-star also played in the Marvel Movie Universe? </br></br>
+     <form>
+            <input type = "radio" name= "q" value = "other"/> John Travolta</br>
+            <input type = "radio" name= "q" value = "answer"/> Samuel L Jackson</br>
+            <input type = "radio" name= "q" value = "other"/> Chrs Evans</br>
+            <input type = "radio" name= "q" value = "other"/>Mark Ruffalo</br>
+        </form>
+    </div>
+
+    <div>
+        Q3: In Harry Potter, Dumbledore has a scar that is a map of what? </br></br>
+        <form class="Options">
+                <input type = "radio" name= "q" value = "answer"/> The London Underground</br>
+                <input type = "radio" name= "q" value = "other"/> Hogwarts</br>
+                <input type = "radio" name= "q" value = "other"/> Marauder</br>
+                <input type = "radio" name= "q" value = "other"/>Location of the Horcruxes</br>
+            </form>
+    </div>
+
+    <div>
+        Q4: Can you Guess which movie this quote is from - I will look for you, I will find you, and I will kill you. </br></br>
+        <form>
+                <input type = "radio" name= "q"  value = "other"/> The Predator</br>
+                <input type = "radio" name= "q" value = "answer"/> Taken</br>
+                <input type = "radio" name= "q" value = "other"/> Finding Nemo</br>
+                <input type = "radio" name= "q" value = "other"/>The Terminator</br>
+            </form>
+    </div>
+
+    <div>
+            Q5: How many Infinity stones are there in the Marvel Cinematic Universe? </br></br>
+            <form>
+                    <input type = "radio" name= "q" value = "other"/> 7</br>
+                    <input type = "radio" name= "q" value = "answer"/> 6</br>
+                    <input type = "radio" name= "q" value = "other"/>100</br>
+                    <input type = "radio" name= "q" value = "other"/>9</br>
+                </form>
+        </div>
+    
+        <div>
+            Q6: Can you guess which movie this quote is from - "WILSON!" </br></br>
+             <form>
+                    <input type = "radio" name= "q" value = "other"/> Coach Carter</br>
+                    <input type = "radio" name= "q" value = "answer"/> Cast Away</br>
+                    <input type = "radio" name= "q" value = "other"/> Finding Nemo</br>
+                    <input type = "radio" name= "q" value = "other"/>The Terminator</br>
+                </form>
+            </div>
+        
+       <div>
+                   
+            Q7: Which of these movies is NOT an adaptation from Stephen King's novels? </br></br>
+              <form>
+                     <input type = "radio" name= "q" value = "other"/> IT</br>
+                     <input type = "radio" name= "q" value = "other"/> Pet Semetary</br>
+                     <input type = "radio" name= "q" value = "answer"/> The Conjuring</br>
+                     <input type = "radio" name= "q" value = "other"/>The Shining</br>
+             </form>
+        </div>
+
+         <div>
+                   
+            Q8: In the Disney movie Mulan, What is the name of Mulan's pet dragon? </br></br>
+              <form>
+                     <input type = "radio" name= "q" value = "answer"/> Mushu</br>
+                     <input type = "radio" name= "q" value = "other"/> Li Shang</br>
+                     <input type = "radio" name= "q" value = "other"/> Spike</br>
+                     <input type = "radio" name= "q" value = "other"/>Cricket</br>
+             </form>
+            
+        </div>
+
+        <div>
+                   
+            Q9: In Harry Potter, What does the Imperius curse do? </br></br>
+              <form>
+                    <input type = "radio" name= "q" value = "other"/> Changes someone into the form of someone else</br>
+                    <input type = "radio" name= "q" value = "other"/>Causes someone excruciating pain</br>
+                    <input type = "radio" name= "q" value = "other"/>Wipes someone's memory</br>
+                    <input type = "radio" name= "q" value = "answer"/>Controls another person's actions</br>
+                 </form>
+                
+            </div>
+
+            <button class= "button-custom" id= "submit">Submit</button>
+
+        </section>
+    
+    </div>
+
+            
+    <div id= "EndScreen" style ="display: none;">
+        
+        <section>
+            
+            Correct answers: <p id = "CorrectAnswer"></p>
+            </br>
+           Incorrect Answers:<p id = "IncorrectAnswer"></p>
+            
+            
+        </section>
+    </div>
+
+    </body>
+
+        <script>
+    
+        $("#start").on("click", function(){
+            $("#StartScreen").hide();
+            $("#GameCanvas").show();
+
+             setTimeout( timeup, 1000 * 50);
+
+             setInterval (function (){
+             $("#timer").text(timeLeft);
+             timeLeft --;
+            }, 1000);
+       
+        });
+
+        $("#submit").on("click", function(){
+            $("#GameCanvas").hide();
+            $("#EndScreen").show();
+            clearTimeout();
+        });
+        
+        
+        
+        function timeup (){
+            $("#GameCanvas").hide();
+            $("#EndScreen").show();
+        };
+
+        var timeLeft = 50;
+        var CorrectCounter = 0;
+        var IncorrectCounter = 0;
+        
+     
+
+    
+
+        
+         $('input[name="q"]').on('click', function() {
+         if ($(this).val() == 'answer') {
+            CorrectCounter++;
+            $("#CorrectAnswer").text(CorrectCounter)}
+        
+         else if ($(this).val() !== 'answer') {
+            IncorrectCounter++;
+            $("#IncorrectAnswer").text(IncorrectCounter)}
+        
+        });
+        
+
+
+
+      
+
+        
+
+        
+        </script>
+
+           
+        
+        
+        </script>
+
+                
+
+</html>
